@@ -18,6 +18,6 @@ pub struct CliArgs {
     pub messages: Vec<String>,
 
     /// Set how verbose logging level should be
-    #[clap(long, value_enum, default_value = "info")]
+    #[clap(short, long, value_enum, default_value = "info")]
     pub verbosity: LevelFilter,
 }
