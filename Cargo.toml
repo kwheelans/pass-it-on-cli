@@ -1,0 +1,29 @@
+[package]
+name = "pio-command-line-client"
+version = "0.1.0"
+authors = ["Kevin Wheelans <kevin.wheelans@proton.me>"]
+edition = "2021"
+rust-version = "1.66"
+description = "A command line tool to sent a single notification to a pass-it-on server"
+documentation = "https://docs.rs/crate/pio-command-line-client"
+homepage = "https://github.com/kwheelans/pio-command-line-client"
+license = "MIT"
+keywords = ["pass-it-on", "client"]
+readme = "README.md"
+repository = "https://github.com/kwheelans/pio-command-line-client"
+
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+log = "0.4"
+pass-it-on = { version = "0.7", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
+simple_logger = "4"
+serde = { version = "1", features = ["derive"] }
+thiserror = "1"
+tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
+toml = { version = "0.8", features = ["parse"], default-features = false}
+
+
+[profile.release]
+lto = true
+codegen-units = 1

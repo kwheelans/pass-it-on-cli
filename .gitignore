@@ -1,0 +1,11 @@
+# IDE
+.idea
+.fleet
+
+# Build
+target/
+**/*.rs.bk
+*.pdb
+
+# Test
+test_data
