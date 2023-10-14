@@ -18,10 +18,8 @@ clap = { version = "4", features = ["derive"] }
 log = "0.4"
 pass-it-on = { version = "0.7", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 simple_logger = "4"
-serde = { version = "1", features = ["derive"] }
 thiserror = "1"
 tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
-toml = { version = "0.8", features = ["parse"], default-features = false}
 
 
 [profile.release]

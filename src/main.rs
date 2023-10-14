@@ -16,7 +16,7 @@ mod error;
 
 const LOG_TARGET: &str = "pio-cmd-line-client";
 const WAIT_BEFORE_SHUTDOWN: u64 = 500;
-const WAIT_AFTER_SHUTDOWN: u64 = 300;
+const WAIT_AFTER_SHUTDOWN: u64 = 400;
 
 #[tokio::main]
 async fn main() {
