@@ -1,3 +1,7 @@
+# v0.2.0
+## Braking Changes
+- bump pass-it-on dependency to 0.11.0 which is not backwards compatible
+
 # v0.1.1
 ## Changes
 - bump pass-it-on dependency to 0.9.0
