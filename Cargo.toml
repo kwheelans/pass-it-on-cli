@@ -1,22 +1,22 @@
 [package]
-name = "pio-command-line-client"
-version = "0.2.1"
+name = "pass-it-on-cli"
+version = "0.3.0"
 authors = ["Kevin Wheelans <kevin.wheelans@proton.me>"]
 edition = "2021"
 rust-version = "1.70"
 description = "A command line tool to send notifications to a pass-it-on server"
-documentation = "https://docs.rs/crate/pio-command-line-client"
-homepage = "https://github.com/kwheelans/pio-command-line-client"
+documentation = "https://docs.rs/crate/pass-it-on-cli"
+homepage = "https://github.com/kwheelans/pass-it-on-cli"
 license = "MIT"
 keywords = ["pass-it-on", "client"]
 readme = "README.md"
-repository = "https://github.com/kwheelans/pio-command-line-client"
+repository = "https://github.com/kwheelans/pass-it-on-cli"
 
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
 log = "0.4"
-pass-it-on = { version = "0.13", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
+pass-it-on = { version = "0.14", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 simple_logger = "4"
 thiserror = "1"
 tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
