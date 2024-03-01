@@ -1,7 +1,7 @@
 # pass-it-on-cli
 [![MIT licensed](https://img.shields.io/crates/l/pass-it-on-cli)](./LICENSE)
 
-A command line tool to send notifications to a pass-it-on server
+A command line tool to send notifications to a [pass-it-on](https://github.com/kwheelans/pass-it-on) server
 
 ## Usage
 By providing path to a valid pass-it-on client configuration file one of more messages can be sent with the provided notification name.
