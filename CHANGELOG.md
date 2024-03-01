@@ -1,3 +1,7 @@
+# v0.3.1
+## Changes
+- minor changes related to crate name change
+
 # v0.3.0
 ## Breaking Changes
 - bump pass-it-on dependency to 0.14.0

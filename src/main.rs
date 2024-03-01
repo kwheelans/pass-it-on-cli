@@ -1,5 +1,27 @@
-//! # pass-it-on-command-line-client
+//! # pass-it-on-cli
 //! A command line tool to send notifications to a pass-it-on server
+//! 
+//! ## Usage
+//! By providing path to a valid pass-it-on client configuration file one of more messages can be sent with the provided notification name.
+//! 
+//! `pass-it-on-cli -c path/to/client/configuration/file -n my_notification_name -m "message 1" -m "A second message"`
+//! 
+//! ### Client Configuration Example
+//! ```toml
+//! [client]
+//! key = "sdfsf4633ghf44dfhdfhQdhdfhewaasg"
+//! 
+//! [[client.interface]]
+//! type = "pipe"
+//! path = '/path/to/pipe.fifo'
+//! group_read_permission = true
+//! group_write_permission = true
+//! 
+//! [[client.interface]]
+//! type = "http"
+//! host = "192.168.1.2"
+//! port = 8080
+//! ```
 
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
@@ -14,7 +36,7 @@ use crate::error::Error;
 mod cli;
 mod error;
 
-const LOG_TARGET: &str = "pio-cmd-line-client";
+const LOG_TARGET: &str = "pass-it-on-cli";
 const WAIT_BEFORE_SHUTDOWN: u64 = 500;
 const WAIT_AFTER_SHUTDOWN: u64 = 400;
 
