@@ -1,3 +1,7 @@
+# v0.3.2
+## Changes
+- add `vendored-tls` feature that enables the `vendored-tls` feature for the `pass-it-on` create
+
 # v0.3.1
 ## Changes
 - minor changes related to crate name change

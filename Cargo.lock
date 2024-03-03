@@ -589,9 +589,9 @@ dependencies = [
 
 [[package]]
 name = "mio"
-version = "0.8.10"
+version = "0.8.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f3d0b296e374a4e6f3c7b0a1f5a51d748a0d34c85e7dc48fc3fa9a87657fe09"
+checksum = "a4a650543ca06a924e8b371db273b2756685faae30f8487da1b56505a8f78b0c"
 dependencies = [
  "libc",
  "wasi",
@@ -725,9 +725,9 @@ dependencies = [
 
 [[package]]
 name = "pass-it-on"
-version = "0.14.0"
+version = "0.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "93f4f1cad45794ec38a24a63261df9ee7fc4bea876419ec673c78e6bac96a75e"
+checksum = "ecc98645e5457eae445686dfb43f7cfb66fc126da245f422f04f966b9cd184d1"
 dependencies = [
  "async-trait",
  "blake3",
@@ -746,7 +746,7 @@ dependencies = [
 
 [[package]]
 name = "pass-it-on-cli"
-version = "0.3.1"
+version = "0.3.2"
 dependencies = [
  "clap",
  "log",
