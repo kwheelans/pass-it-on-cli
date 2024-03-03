@@ -1,5 +1,7 @@
 on:
   workflow_dispatch:
+  push:
+    branches: ['main']
 
 name: Test
 
@@ -18,9 +20,6 @@ jobs:
             os: ubuntu-latest
             rust: stable
           - target: x86_64-unknown-linux-musl
-            os: ubuntu-latest
-            rust: stable
-          - target: x86_64-unknown-freebsd
             os: ubuntu-latest
             rust: stable
           - target: aarch64-unknown-linux-gnu
