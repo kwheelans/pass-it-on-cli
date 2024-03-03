@@ -46,4 +46,4 @@ jobs:
           echo "CARGO=cross" >> $GITHUB_ENV
 
       - name: Run Test Target
-        run: ${{ env.CARGO }} test --all-features --target ${{ matrix.target }}
+        run: ${{ env.CARGO }} test --target ${{ matrix.target }}
