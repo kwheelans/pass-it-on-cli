@@ -1,13 +1,13 @@
 use clap::Parser;
-use std::path::PathBuf;
 use log::LevelFilter;
+use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 pub struct CliArgs {
     /// Path to pass-it-on client configuration file
     #[clap(short, long, value_parser)]
-    pub client_config: PathBuf,
+    pub client_config: Option<PathBuf>,
 
     /// Notification name for pass-it-on client to use
     #[clap(short, long, value_parser)]

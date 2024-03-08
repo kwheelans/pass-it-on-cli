@@ -17,6 +17,7 @@ vendored-tls = ["pass-it-on/vendored-tls"]
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
+directories = "5"
 log = "0.4"
 pass-it-on = { version = "0.14", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 simple_logger = "4"

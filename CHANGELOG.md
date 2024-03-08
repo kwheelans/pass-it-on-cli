@@ -1,3 +1,9 @@
+# Unreleased
+## Changes
+- default wait before shutdown increased to 2 seconds to receive response
+- make `--client_config` optional and use default path if not provided
+- update to pass-it-on 0.14.3
+
 # v0.3.2
 ## Changes
 - add `vendored-tls` feature that enables the `vendored-tls` feature for the `pass-it-on` create
