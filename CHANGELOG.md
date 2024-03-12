@@ -1,3 +1,8 @@
+# v0.4.1
+## Fixes
+- Check that configuration file exists before trying to read
+- Return ExitCode to show correct exit code on error
+
 # v0.4.0
 ## Changes
 - default wait before shutdown increased to 2 seconds to receive response

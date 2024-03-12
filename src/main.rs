@@ -29,6 +29,7 @@ use clap::Parser;
 use log::{debug, error, info, LevelFilter};
 use pass_it_on::notifications::{ClientReadyMessage, Message};
 use pass_it_on::{start_client_arc, ClientConfiguration};
+use std::process::ExitCode;
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use tokio::sync::watch;
@@ -41,7 +42,7 @@ const WAIT_BEFORE_SHUTDOWN: u64 = 2000;
 const WAIT_AFTER_SHUTDOWN: u64 = 400;
 
 #[tokio::main]
-async fn main() {
+async fn main() -> ExitCode {
     let args = CliArgs::parse();
 
     simple_logger::SimpleLogger::new()
@@ -54,9 +55,11 @@ async fn main() {
         .unwrap();
 
     if let Err(error) = run(args).await {
-        error!(target: LOG_TARGET, "{}", error)
+        error!(target: LOG_TARGET, "{}", error);
+        ExitCode::FAILURE
     } else {
-        info!(target: LOG_TARGET, "Done")
+        info!(target: LOG_TARGET, "Done");
+        ExitCode::SUCCESS
     }
 }
 
@@ -73,6 +76,15 @@ async fn run(args: CliArgs) -> Result<(), Error> {
     debug!(target: LOG_TARGET,"Default Configuration File: {}", default_config_path.to_string_lossy());
 
     let client_config_path = args.client_config.unwrap_or(default_config_path);
+    debug!(target: LOG_TARGET, "Reading configuration from: {}", client_config_path.to_string_lossy());
+
+    if !client_config_path.is_file() {
+        return Err(Error::MissingConfiguration(format!(
+            "Configuration file {} is not a file or does not exist",
+            client_config_path.to_string_lossy()
+        )));
+    }
+
     let client_config =
         ClientConfiguration::try_from(std::fs::read_to_string(client_config_path)?.as_str())?;
 
