@@ -1,4 +1,4 @@
-# Unreleased
+# v0.4.0
 ## Changes
 - default wait before shutdown increased to 2 seconds to receive response
 - make `--client_config` optional and use default path if not provided
