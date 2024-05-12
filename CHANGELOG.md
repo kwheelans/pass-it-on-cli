@@ -1,3 +1,8 @@
+# v0.4.2
+## Changes
+- Update simple_logger dependency to version 5.0
+- Update pass-it-on to 0.14.4
+
 # v0.4.1
 ## Fixes
 - Check that configuration file exists before trying to read
