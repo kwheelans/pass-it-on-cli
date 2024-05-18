@@ -1,3 +1,7 @@
+# v0.5.0
+## Breaking Changes
+- Update pass-it-on to v0.15.0
+
 # v0.4.2
 ## Changes
 - Update simple_logger dependency to version 5.0

@@ -1,6 +1,6 @@
 [package]
 name = "pass-it-on-cli"
-version = "0.4.2"
+version = "0.5.0"
 authors = ["Kevin Wheelans <kevin.wheelans@proton.me>"]
 edition = "2021"
 rust-version = "1.70"
@@ -19,7 +19,7 @@ vendored-tls = ["pass-it-on/vendored-tls"]
 clap = { version = "4", features = ["derive"] }
 directories = "5"
 log = "0.4"
-pass-it-on = { version = "0.14", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
+pass-it-on = { version = "0.15", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 simple_logger = "5"
 thiserror = "1"
 tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
