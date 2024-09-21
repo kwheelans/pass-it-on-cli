@@ -1,5 +1,9 @@
+# v0.5.1
+## Changes
+- Update pass-it-on to v0.15.1
+
 # v0.5.0
-## Breaking Changes
+## Changes
 - Update pass-it-on to v0.15.0
 
 # v0.4.2
