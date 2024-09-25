@@ -26,39 +26,32 @@
 use crate::cli::CliArgs;
 use crate::error::Error;
 use clap::Parser;
-use log::{debug, error, info, LevelFilter};
 use pass_it_on::notifications::{ClientReadyMessage, Message};
 use pass_it_on::{start_client_arc, ClientConfiguration};
 use std::process::ExitCode;
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use tokio::sync::watch;
+use tracing::{debug, error, info};
 
 mod cli;
 mod error;
 
-const LOG_TARGET: &str = "pass-it-on-cli";
 const WAIT_BEFORE_SHUTDOWN: u64 = 2000;
 const WAIT_AFTER_SHUTDOWN: u64 = 400;
 
 #[tokio::main]
 async fn main() -> ExitCode {
     let args = CliArgs::parse();
-
-    simple_logger::SimpleLogger::new()
-        .with_level(LevelFilter::Off)
-        .env()
-        .with_module_level(pass_it_on::LIB_LOG_TARGET, args.verbosity)
-        .with_module_level(LOG_TARGET, args.verbosity)
-        .with_colors(true)
-        .init()
-        .unwrap();
+    tracing_subscriber::fmt()
+        .with_max_level(args.verbosity)
+        .init();
 
     if let Err(error) = run(args).await {
-        error!(target: LOG_TARGET, "{}", error);
+        error!("{}", error);
         ExitCode::FAILURE
     } else {
-        info!(target: LOG_TARGET, "Done");
+        info!("Done");
         ExitCode::SUCCESS
     }
 }
@@ -73,10 +66,10 @@ async fn run(args: CliArgs) -> Result<(), Error> {
         .config_dir()
         .to_path_buf();
     let default_config_path = default_config_dir.join("config.toml");
-    debug!(target: LOG_TARGET,"Default Configuration File: {}", default_config_path.to_string_lossy());
+    debug!("Default Configuration File: {}", default_config_path.to_string_lossy());
 
     let client_config_path = args.client_config.unwrap_or(default_config_path);
-    debug!(target: LOG_TARGET, "Reading configuration from: {}", client_config_path.to_string_lossy());
+    debug!("Reading configuration from: {}", client_config_path.to_string_lossy());
 
     if !client_config_path.is_file() {
         return Err(Error::MissingConfiguration(format!(
@@ -90,14 +83,14 @@ async fn run(args: CliArgs) -> Result<(), Error> {
 
     // Process messages and send shutdown signal
     tokio::spawn(async move {
-        info!(target: LOG_TARGET, "Processing messages");
+        info!("Processing messages");
         for message in args.messages {
             let msg = Message::new(message).to_client_ready_message(&args.notification_name);
             message_arc.lock().unwrap().push(msg);
         }
         tokio::time::sleep(Duration::from_millis(WAIT_BEFORE_SHUTDOWN)).await;
         if let Err(error) = shutdown_tx.send(true) {
-            error!(target: LOG_TARGET, "Unable to send shutdown signal: {}", error)
+            error!("Unable to send shutdown signal: {}", error)
         }
         tokio::time::sleep(Duration::from_millis(WAIT_AFTER_SHUTDOWN)).await;
     });

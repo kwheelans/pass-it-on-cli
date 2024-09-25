@@ -1,6 +1,6 @@
 [package]
 name = "pass-it-on-cli"
-version = "0.5.1"
+version = "0.6.0"
 authors = ["Kevin Wheelans <kevin.wheelans@proton.me>"]
 edition = "2021"
 rust-version = "1.70"
@@ -13,16 +13,16 @@ readme = "README.md"
 repository = "https://github.com/kwheelans/pass-it-on-cli"
 
 [features]
-vendored-tls = ["pass-it-on/vendored-tls"]
+rustls-tls-native-roots = ["pass-it-on/rustls-tls-native-roots"]
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
 directories = "5"
-log = "0.4"
-pass-it-on = { version = "0.15", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
-simple_logger = "5"
+pass-it-on = { version = "0.16", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 thiserror = "1"
 tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
 
 
 [profile.release]

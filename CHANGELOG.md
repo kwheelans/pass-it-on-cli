@@ -1,3 +1,12 @@
+# v0.6.0
+## Breaking changes
+- removed vendored-tls feature
+
+## Changes
+- updated pass-it-on 0.16.0
+- added rustls-tls-native-roots feature
+- switch to tracing from log for logging
+
 # v0.5.1
 ## Changes
 - Update pass-it-on to v0.15.1
