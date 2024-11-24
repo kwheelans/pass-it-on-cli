@@ -1,3 +1,7 @@
+# v0.6.1
+## Changes
+- update `thiserror` dependency  to version 2.x.y
+
 # v0.6.0
 ## Breaking changes
 - removed vendored-tls feature
