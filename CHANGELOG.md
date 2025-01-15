@@ -1,4 +1,6 @@
 # Unreleased
+
+# v0.6.2
 ## Changes
 - update directories to 6.0
 
