@@ -3,7 +3,7 @@ name = "pass-it-on-cli"
 version = "0.6.1"
 authors = ["Kevin Wheelans <kevin.wheelans@proton.me>"]
 edition = "2021"
-rust-version = "1.70"
+rust-version = "1.81"
 description = "A command line tool to send notifications to a pass-it-on server"
 documentation = "https://docs.rs/crate/pass-it-on-cli"
 homepage = "https://github.com/kwheelans/pass-it-on-cli"
@@ -17,7 +17,7 @@ rustls-tls-native-roots = ["pass-it-on/rustls-tls-native-roots"]
 
 [dependencies]
 clap = { version = "4", features = ["derive"] }
-directories = "5"
+directories = "6"
 pass-it-on = { version = "0.16", features = ["client", "http-client", "pipe-client", "parse-cfg"], default-features = false}
 thiserror = "2"
 tokio = { version = "1", features = ["sync", "macros", "rt-multi-thread"] }
