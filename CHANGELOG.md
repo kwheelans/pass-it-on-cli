@@ -1,4 +1,6 @@
 # Unreleased
+## Changes
+- Update rust edition to 2024
 
 # v0.6.2
 ## Changes
