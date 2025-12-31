@@ -1,6 +1,16 @@
 # Unreleased
+
+# v0.7.0
+## Breaking Changes
+-  remove rustls-tls-native-roots feature
+- 
 ## Changes
 - Update rust edition to 2024
+- Update pass-it-on to 0.17
+
+# v0.6.3
+## Changes
+- update github actions dependencies
 
 # v0.6.2
 ## Changes
