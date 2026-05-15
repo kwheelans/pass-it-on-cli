@@ -1,6 +1,6 @@
 # Unreleased
 
-# v0.7.1
+# v0.7.2
 ## Changes
 - update lockfile
 
