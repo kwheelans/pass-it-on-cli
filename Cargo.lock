@@ -917,9 +917,9 @@ checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
 
 [[package]]
 name = "pass-it-on"
-version = "0.17.3"
+version = "0.17.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0625a955dded131ac736dcc7c186008cc9fc6f31c0160c3c5cca6981f5b7d56d"
+checksum = "e7a457f1f9477da308169dbac7af7107045c44874274e27b6680b03fbe7ea8be"
 dependencies = [
  "async-trait",
  "blake3",
